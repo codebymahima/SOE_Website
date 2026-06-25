@@ -1,19 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Academics from "./pages/Academics";
+import Faculty from "./pages/Faculty";
+import Events from "./pages/Events";
+import Contact from "./pages/Contact";
+import Research from "./pages/Research";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-   <div className="min-h-screen flex items-center justify-center bg-slate-100">
-      <h1 className="text-4xl font-bold text-blue-900">
-        School of Engineering Website
-      </h1>
-    </div>
-  )
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/academics" element={<Academics />} />
+        <Route path="/faculty" element={<Faculty />} />
+        <Route path="/research" element={<Research />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
